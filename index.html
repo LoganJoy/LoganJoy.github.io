@@ -25,7 +25,7 @@
     <meta name="title" content="Callbreak Master">
     <script>
         var userLang = navigator.language || navigator.userLanguage;
-        if (userLang.indexOf("hi") === 0 || userLang.indexOf("in") === 0 ) {
+        if (userLang.indexOf("hi") === 0 || userLang.indexOf("in") === 0) {
             window.location.href = "/in/";
         }
     </script>
@@ -46,8 +46,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="return trace('googleplay', 'pc');"
-                                   href="https://play.google.com/store/apps/details?id=com.callbreak.hippo">
+                                <a target="_blank" onclick="return trace('click', 'google', '/en', 'cb1');"
+                                   href="https://callbreak.sng.link/D7jwm/j9p4">
                                     <img alt="Get it on Google Play"
                                          src="images/icon_google2.png">
                                 </a>
@@ -55,7 +55,8 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('Coming Soon')">
+                                <a target="_blank"
+                                   onclick="alert('Coming Soon');return trace('click', 'h5', '/en', 'cb1');">
                                     <img alt="Play Now"
                                          src="images/h5btn.png">
                                 </a>
@@ -75,11 +76,11 @@
                 <span style="color: #a7a7a7;">Download</span>+27,627,925</span>
                 <h4>Download and play for a better experience!<br/>(Skip to download page) </h4>
                 <div class="banner-button">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="return trace('googleplay', 'mobile');"
-                                   href="https://play.google.com/store/apps/details?id=com.callbreak.hippo">
+                                <a target="_blank" onclick="return trace('click', 'google', '/en', 'cb1');"
+                                   href="https://callbreak.sng.link/D7jwm/j9p4">
                                     <img alt="Get it on Google Play"
                                          src="images/icon_google2.png" style="margin-left: 30px">
                                 </a>
@@ -87,7 +88,8 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('Coming Soon')">
+                                <a target="_blank"
+                                   onclick="alert('Coming Soon');return trace('click', 'h5', '/en', 'cb1');">
                                     <img alt="Play Now"
                                          src="images/h5btn.png" style="margin-right: 30px">
                                 </a>
@@ -107,9 +109,9 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="feature-img">
-                        <a target="_blank"
-                           href="https://play.google.com/store/apps/details?id=com.callbreak.hippo">
-                        <img src="images/callbreak master.png">
+                        <a target="_blank" onclick="return trace('click', 'icon', '/en', 'cb1');"
+                           href="https://callbreak.sng.link/D7jwm/j9p4">
+                            <img src="images/callbreak master.png">
                         </a>
                     </div>
                     <div class="feature-content">
@@ -119,9 +121,9 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="feature-img">
-                        <a target="_blank"
-                           href="https://play.google.com/store/apps/details?id=com.callbreak.three">
-                        <img src="images/callbreak 3.png" alt="Multiplayer">
+                        <a target="_blank" onclick="return trace('click', 'icon', '/en', 'cb3');"
+                           href="https://callbreak.sng.link/D0jhz/bf6r">
+                            <img src="images/callbreak 3.png" alt="Multiplayer">
                         </a>
                     </div>
                     <div class="feature-content">
@@ -135,7 +137,7 @@
     <section class="section bg3">
         <div class="container">
             <div class="bg3-video">
-                <div class="embed-responsive embed-responsive-21by9">
+                <div class="embed-responsive embed-responsive-21by9" id="record_iframe">
                     <iframe src="https://www.youtube.com/embed/USptpeunZVY" title="YouTube video" allowfullscreen
                             class="bg3-video"></iframe>
                 </div>
@@ -207,7 +209,7 @@
                         <h3 class="mb-3">Callbreak Contact</h3>
                         <p>
                             <storng>Email:</storng>
-                            <a href="mailto:hippogame2018@gmail.com" title="hippogame2018@gmail.com"
+                            <a href="mailto:hippogame2018@gmail.com" title="hippogame2018@gmail.com" onclick="return trace('email', 'link', '/en', null);"
                                class="align-items-center mail-address color-blue"><img src="/images/email.svg" alt="">hippogame2018@gmail.com</a>
                         </p>
                         <p>© 2018-2023, Hippo Entertainment Limited. All rights reserved.</p>
@@ -218,10 +220,21 @@
         </div>
     </section>
     <script>
-        function trace(target, device) {
+        $(function () {
+            trace("access", "page", "/en", null);
+        });
+
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function trace(event, target, path, app) {
             setTimeout(function () {
-                var host = '/'; // 线上换成”/“
-                var url = host + 'trace?target=' + target + '&device=' + device;
+                var host = '8.219.255.218:888/'; // 线上换成”/“
+                var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
+                if (app) {
+                    url += '&app=' + app;
+                }
                 (new Image()).src = url;
             }, 10);
             return true;

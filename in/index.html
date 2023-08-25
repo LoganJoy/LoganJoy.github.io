@@ -46,8 +46,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="return trace('googleplay', 'pc');"
-                                   href="https://play.google.com/store/apps/details?id=com.callbreak.hippo">
+                                <a target="_blank" onclick="return trace('click', 'google', '/in', 'cb1');"
+                                   href="https://callbreak.sng.link/D7jwm/j9p4">
                                     <img alt="Get it on Google Play"
                                          src="../images/icon_google2.png">
                                 </a>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('जल्दी आते हैं')">
+                                <a target="_blank" onclick="alert('जल्दी आते हैं');return trace('click', 'h5', '/in', 'cb1');">
                                     <img alt="Play Now"
                                          src="../images/h5btn.png">
                                 </a>
@@ -76,8 +76,8 @@
                     <div class="row" >
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="return trace('googleplay', 'mobile');"
-                                   href="https://play.google.com/store/apps/details?id=com.callbreak.hippo">
+                                <a target="_blank" onclick="return trace('click', 'google', '/in', 'cb1');"
+                                   href="https://callbreak.sng.link/D7jwm/j9p4">
                                     <img alt="Get it on Google Play"
                                          src="../images/icon_google2.png" style="margin-left: 30px">
                                 </a>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('जल्दी आते हैं')">
+                                <a target="_blank" onclick="alert('जल्दी आते हैं');return trace('click', 'h5', '/in', 'cb1');">
                                     <img alt="Play Now"
                                          src="../images/h5btn.png" style="margin-right: 30px">
                                 </a>
@@ -105,8 +105,8 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     <div class="feature-img">
-                        <a target="_blank"
-                           href="https://play.google.com/store/apps/details?id=com.callbreak.hippo">
+                        <a target="_blank" onclick="return trace('click', 'icon', '/in', 'cb1');"
+                           href="https://callbreak.sng.link/D7jwm/j9p4">
                         <img src="../images/callbreak master.png">
                         </a>
                     </div>
@@ -117,8 +117,8 @@
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="feature-img">
-                        <a target="_blank"
-                           href="https://play.google.com/store/apps/details?id=com.callbreak.three">
+                        <a target="_blank" onclick="return trace('click', 'icon', '/in', 'cb3');"
+                           href="https://callbreak.sng.link/D0jhz/bf6r">
                         <img src="../images/callbreak 3.png" alt="Multiplayer">
                         </a>
                     </div>
@@ -205,7 +205,7 @@
                         <h3 class="mb-3">Callbreak Contact</h3>
                         <p>
                             <storng>Email:</storng>
-                            <a href="mailto:hippogame2018@gmail.com" title="hippogame2018@gmail.com"
+                            <a href="mailto:hippogame2018@gmail.com" title="hippogame2018@gmail.com" onclick="return trace('email', 'link', '/in', null);"
                                class="align-items-center mail-address color-blue"><img src="../images/email.svg" alt="">hippogame2018@gmail.com</a>
                         </p>
                         <p>© 2018-2023, Hippo Entertainment Limited. All rights reserved.</p>
@@ -216,10 +216,21 @@
         </div>
     </section>
     <script>
-        function trace(target, device) {
+        $(function () {
+            trace("access", "page", "/in", null);
+        });
+
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function trace(event, target, path, app) {
             setTimeout(function () {
-                var host = '/'; // 线上换成”/“
-                var url = host + 'trace?target=' + target + '&device=' + device;
+                var host = '8.219.255.218:888/'; // 线上换成”/“
+                var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
+                if (app) {
+                    url += '&app=' + app;
+                }
                 (new Image()).src = url;
             }, 10);
             return true;
