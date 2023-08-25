@@ -229,7 +229,7 @@
 
         function trace(event, target, path, app) {
             setTimeout(function () {
-                var host = '8.219.255.218:888/'; // 线上换成”/“
+                var host = 'http://8.219.255.218:888/';
                 var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
                 if (app) {
                     url += '&app=' + app;
