@@ -56,7 +56,8 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('Coming Soon');return trace('click', 'h5', '/en', 'cb1');">
+                                <a target="_blank" onclick="return trace('click', 'h5', '/en', 'cb1');"
+									href="https://cb1.callbreakmaster.fun/h5/cb1/index.html">
                                     <img alt="Play Now"
                                          src="../images/h5btn.png">
                                 </a>
@@ -220,7 +221,7 @@
     </section>
     <script>
         $(function () {
-            trace("access", "page", "/en", null);
+            trace("access", "page", "/en",  "callbreak");
         });
 
         function isMobileDevice() {
@@ -229,7 +230,7 @@
 
         function trace(event, target, path, app) {
             setTimeout(function () {
-                var host = 'http://8.219.255.218:888/';
+                var host = location.protocol+'//8.219.255.218:888/';
                 var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
                 if (app) {
                     url += '&app=' + app;

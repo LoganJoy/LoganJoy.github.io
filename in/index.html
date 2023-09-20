@@ -55,7 +55,8 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('जल्दी आते हैं');return trace('click', 'h5', '/in', 'cb1');">
+                                <a target="_blank" onclick="return trace('click', 'h5', '/in', 'cb1');"
+									href="https://cb1.callbreakmaster.fun/h5/cb1/index.html">
                                     <img alt="Play Now"
                                          src="../images/h5btn.png">
                                 </a>
@@ -85,7 +86,8 @@
                         </div>
                         <div class="col">
                             <div class="logo">
-                                <a target="_blank" onclick="alert('जल्दी आते हैं');return trace('click', 'h5', '/in', 'cb1');">
+                                <a target="_blank" onclick=return trace('click', 'h5', '/in', 'cb1');"
+									href="https://cb1.callbreakmaster.fun/h5/cb1/index.html">
                                     <img alt="Play Now"
                                          src="../images/h5btn.png" style="margin-right: 30px">
                                 </a>
@@ -217,7 +219,7 @@
     </section>
     <script>
         $(function () {
-            trace("access", "page", "/in", null);
+            trace("access", "page", "/in", "callbreak");
         });
 
         function isMobileDevice() {
@@ -226,7 +228,7 @@
 
         function trace(event, target, path, app) {
             setTimeout(function () {
-                var host = 'http://8.219.255.218:888/';
+                var host = location.protocol+'//8.219.255.218:888/';
                 var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
                 if (app) {
                     url += '&app=' + app;

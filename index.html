@@ -35,13 +35,13 @@
 <main>
     <section class="section-banner text-center">
         <div class="container-fluid p-0">
-            <img src="images/bg1.jpg" alt="Callbreak" class="w-100 d-none d-md-block">
+            <img src="images/bg1.png" alt="Callbreak" class="w-100 d-none d-md-block">
             <div class="banner-text d-none d-md-block">
                 <h1>Start Your Journey
                     As A Legendary
                     Poker Player!</h1>
-                <p>Download+27,627,925</p>
-                <h4>Download and play for a better experience! (Skip to download page)</h4>
+                <p>Over 50 million players</p>
+                <h4>Download now for an amazing experience!</h4>
                 <div class="banner-button">
                     <div class="row">
                         <div class="col">
@@ -56,7 +56,8 @@
                         <div class="col">
                             <div class="logo">
                                 <a target="_blank"
-                                   onclick="alert('Coming Soon');return trace('click', 'h5', '/en', 'cb1');">
+                                   onclick="return trace('click', 'h5', '/en', 'cb1');"
+								   href="https://cb1.callbreakmaster.fun/h5/cb1/index.html">
                                     <img alt="Play Now"
                                          src="images/h5btn.png">
                                 </a>
@@ -67,14 +68,14 @@
                 </div>
 
             </div>
-            <a target="_blank"><img src="images/di1.jpg" alt="Callbreak" class="w-100 d-md-none"></a>
+            <a target="_blank"><img src="images/di1.png" alt="Callbreak" class="w-100 d-md-none"></a>
             <div class="banner-mobile d-md-none">
                 <h1>Start Your Journey
                     As A Legendary
                     Poker Player!</h1>
                 <span>
-                <span style="color: #a7a7a7;">Download</span>+27,627,925</span>
-                <h4>Download and play for a better experience!<br/>(Skip to download page) </h4>
+                <span>Over 50 million players</span>
+                <h4>Download now for an amazing experience!</h4>
                 <div class="banner-button">
                     <div class="row">
                         <div class="col">
@@ -89,7 +90,8 @@
                         <div class="col">
                             <div class="logo">
                                 <a target="_blank"
-                                   onclick="alert('Coming Soon');return trace('click', 'h5', '/en', 'cb1');">
+                                   onclick="return trace('click', 'h5', '/en', 'cb1');"
+								   href="https://cb1.callbreakmaster.fun/h5/cb1/index.html">
                                     <img alt="Play Now"
                                          src="images/h5btn.png" style="margin-right: 30px">
                                 </a>
@@ -221,7 +223,7 @@
     </section>
     <script>
         $(function () {
-            trace("access", "page", "/en", null);
+            trace("access", "page", "/en", "callbreak");
         });
 
         function isMobileDevice() {
@@ -230,7 +232,7 @@
 
         function trace(event, target, path, app) {
             setTimeout(function () {
-                var host = 'http://8.219.255.218:888/';
+                var host = location.protocol+'//8.219.255.218:888/';
                 var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
                 if (app) {
                     url += '&app=' + app;
