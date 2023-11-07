@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="Callbreak Master"/>
-    <meta name="description" content="Callbreak Master"/>
-    <meta name="author" content="Callbreak Master"/>
+    <meta name="keywords" content="Callbreak Master - Multiplayer Card Game Online"/>
+    <meta name="description" content="Callbreak Master - Multiplayer Card Game Online"/>
+    <meta name="author" content="Callbreak Master - Multiplayer Card Game Online"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <title>Callbreak Master</title>
+    <title>Callbreak Master - Multiplayer Card Game Online</title>
     <script>
         var userLang = navigator.language || navigator.userLanguage;
         if (userLang.indexOf("hi") === 0 || userLang.indexOf("in") === 0 ) {
@@ -23,6 +23,8 @@
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-M7GX7RDH');</script>
     <!-- End Google Tag Manager -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6877195875453822"
+            crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="../js/modernizr-3.7.1.min.js"></script>
@@ -37,7 +39,7 @@
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/main.js"></script>
 
-    <meta name="title" content="Callbreak Master">
+    <meta name="title" content="Callbreak Master - Multiplayer Card Game Online">
 </head>
 
 <body class="home">
@@ -187,13 +189,14 @@
 
     function trace(event, target, path, app) {
         setTimeout(function () {
-            var host = location.protocol+'//8.219.255.218:888/';
-            // var host = location.protocol + '//127.0.01:888/';
+            var protocol = location.protocol;
+            var host = protocol+'//8.219.255.218:888/';
             var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
-            if (app) {
-                url += '&app=' + app;
-            }
-            (new Image()).src = url;
+            var img = new Image();
+            img.onerror = function() {
+                img.src = url.replace("https", "http")
+            };
+            img.src = url;
         }, 10);
         return true;
     }
