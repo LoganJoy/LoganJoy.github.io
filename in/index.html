@@ -203,9 +203,9 @@
             var host = protocol+'//8.219.255.218:888/';
             var url = host + 'c.gif?event=' + event + '&target=' + target + '&path=' + path + '&device=' + (isMobileDevice() ? "mobile" : "pc");
             var img = new Image();
-            img.onerror = function() {
-                img.src = url.replace("https", "http")
-            };
+            // img.onerror = function() {
+            //     img.src = url.replace("https", "http")
+            // };
             img.src = url;
         }, 10);
         return true;
